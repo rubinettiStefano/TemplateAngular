@@ -1,0 +1,121 @@
+/* ------------ RESET ------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------- BASE STYLES ---------- */
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ---------- WRAPPER ------------- */
+.drago-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+}
+
+@media (min-width: 600px) {
+  .drago-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ------------- TITLE ------------ */
+.form-title {
+  grid-column: 1 / -1;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+
+/* ------- INPUTS & SELECT -------- */
+.form-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.form-control:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* ------------- TOGGLE ----------- */
+.toggle {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  width: 40px;
+  height: 20px;
+  background: #c4c4c4;
+  border-radius: 20px;
+  position: relative;
+  transition: background 0.2s linear;
+}
+
+.toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.toggle-input:checked + .toggle-track {
+  background: #1976d2;
+}
+
+.toggle-input:checked + .toggle-track::after {
+  transform: translateX(20px);
+}
+
+/* ------------- BUTTON ----------- */
+.submit-btn {
+  grid-column: 1 / -1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #1976d2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s linear;
+}
+
+.submit-btn:hover {
+  background: #125aa0;
+}

@@ -1,0 +1,53 @@
+<!-- drago-form.component.html -->
+<form class="drago-form">
+  <h2 class="form-title">FORM DRAGO</h2>
+
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="dragoDaInserire.nome"
+    placeholder="Nome"
+    name="nome"
+  >
+
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="dragoDaInserire.ubicazione"
+    placeholder="Ubicazione"
+    name="ubicazione"
+  >
+
+  <select
+    class="form-control"
+    [(ngModel)]="dragoDaInserire.pericolosita"
+    name="pericolosita"
+    required
+  >
+    <option disabled value="">PERICOLOSITÀ</option>
+    <option *ngFor="let per of possibiliPericolosita" [value]="per">{{ per }}</option>
+  </select>
+
+  <select
+    class="form-control"
+    [(ngModel)]="dragoDaInserire.elemento"
+    name="elemento"
+    required
+  >
+    <option disabled value="">ELEMENTO</option>
+    <option *ngFor="let el of possibiliElementi" [value]="el">{{ el }}</option>
+  </select>
+
+  <label class="toggle">
+    <input
+      type="checkbox"
+      class="toggle-input"
+      [(ngModel)]="dragoDaInserire.volante"
+      name="volante"
+    >
+    <span class="toggle-track"></span>
+    <span class="toggle-text">Volante</span>
+  </label>
+
+  <button (click)="salva()" class="submit-btn">SALVA</button>
+</form>

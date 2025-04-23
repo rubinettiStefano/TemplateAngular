@@ -1,0 +1,50 @@
+<div class="mostri-container">
+  <h2>Elenco Mostri</h2>
+
+  <!-- *ngIf è una direttiva Angular, impone logica dentro HTML
+       se il booleano dopo l'uguale è TRUE l'elemento viene GRAFICATO,
+       altrimenti è nascosto
+   -->
+  <p *ngIf="!mostri.length" class="empty-msg">
+    Nessun mostro da mostrare.
+  </p>
+
+  <!--
+      truthy/falsy
+      mostri.length è considerato TRUE se diverso da 0
+      FALSE se 0
+   -->
+  <table *ngIf="mostri.length" class="mostri-table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Ubicazione</th>
+      <th>Pericolosità</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!--
+        direttiva per ciclare l'array di mostri
+        let m of mostri -> for each normalissimo
+        ripeti il codice dalla riga 37 alla riga 45 una volta per ogni mostro
+        che chiami m nell'array di mostri. index as i, prende anche l'indice e lo chiama i
+        grazie alla sintassi a MUSTAZZO ({{}}) lui fa interpolazione, stampa nella pagina i valori
+        delle variabili tra doppie graffe
+        -->
+    <tr *ngFor="let m of mostri; index as i">
+      <td class="index">{{ i + 1 }}</td>
+      <td>{{ m.nome }}</td>
+      <td>{{ m.ubicazione }}</td>
+      <td>
+          <span class="danger">
+            {{ m.pericolosita }}
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
