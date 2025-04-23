@@ -1,0 +1,21 @@
+
+<!-- drago.component.html -->
+<div *ngIf="drago">
+  <article class="card">
+    <header>
+      <h2>
+        {{ drago.nome }}
+        <small *ngIf="drago.id">#{{ drago.id }}</small>
+      </h2>
+    </header>
+
+    <ul>
+      <li><strong>Elemento:</strong> {{ drago.elemento }}</li>
+      <li><strong>Ubicazione:</strong> {{ drago.ubicazione }}</li>
+      <li><strong>Pericolosità:</strong> {{ drago.pericolosita }}</li>
+      <li><strong>Volante:</strong> {{ drago.volante ? 'Sì' : 'No' }}</li>
+    </ul>
+  </article>
+</div>
+
+<p *ngIf="!drago" class="no-selection">Nessun drago selezionato</p>

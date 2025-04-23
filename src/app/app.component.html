@@ -1,3 +1,12 @@
+
+
+
 <!-- Viene definito PADRE di un componente il componente che lo grafica nel suo HTML -->
-<app-form-drago (dragoCreato)="ricaricaTabella()" ></app-form-drago>
-<app-tabella-mostri  [mostri]="mostriInApp" ></app-tabella-mostri>
+<!-- Qui il padre cattura l'evento dragoCreato emesso dal figlio e fa partire il metodo ricaricaArray()-->
+<app-form-drago (dragoCreato)="ricaricaArray()" ></app-form-drago>
+<!-- Qui il padre passa come valore della proprietà mostri del figlio
+    la sua proprietà mostriInApp
+ -->                                          <!--Con $event prendiamo il contenuto informativo dell'evento, la posizione -->
+<app-tabella-mostri  [draghi]="draghiInApp"  (mostraDettaglio)="mostraDrago($event)" ></app-tabella-mostri>
+
+<app-dettaglio-drago [drago]="dragoSelezionato"></app-dettaglio-drago>

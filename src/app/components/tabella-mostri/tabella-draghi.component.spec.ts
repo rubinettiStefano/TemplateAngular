@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TabellaMostriComponent } from './tabella-mostri.component';
+import { TabellaDraghiComponent } from './tabella-draghi.component';
 
 describe('TabellaMostriComponent', () => {
-  let component: TabellaMostriComponent;
-  let fixture: ComponentFixture<TabellaMostriComponent>;
+  let component: TabellaDraghiComponent;
+  let fixture: ComponentFixture<TabellaDraghiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabellaMostriComponent]
+      imports: [TabellaDraghiComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TabellaMostriComponent);
+    fixture = TestBed.createComponent(TabellaDraghiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

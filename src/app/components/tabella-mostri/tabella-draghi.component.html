@@ -1,12 +1,12 @@
 <div class="mostri-container">
-  <h2>Elenco Mostri</h2>
+  <h2>Elenco Draghi</h2>
 
   <!-- *ngIf è una direttiva Angular, impone logica dentro HTML
        se il booleano dopo l'uguale è TRUE l'elemento viene GRAFICATO,
        altrimenti è nascosto
    -->
-  <p *ngIf="!mostri.length" class="empty-msg">
-    Nessun mostro da mostrare.
+  <p *ngIf="!draghi.length" class="empty-msg">
+    Nessun drago da mostrare.
   </p>
 
   <!--
@@ -14,13 +14,15 @@
       mostri.length è considerato TRUE se diverso da 0
       FALSE se 0
    -->
-  <table *ngIf="mostri.length" class="mostri-table">
+  <table *ngIf="draghi.length" class="mostri-table">
     <thead>
     <tr>
       <th>#</th>
       <th>Nome</th>
       <th>Ubicazione</th>
       <th>Pericolosità</th>
+      <th>Elemento</th>
+      <th>Volante</th>
     </tr>
     </thead>
 
@@ -33,8 +35,8 @@
         grazie alla sintassi a MUSTAZZO ({{}}) lui fa interpolazione, stampa nella pagina i valori
         delle variabili tra doppie graffe
         -->
-    <tr *ngFor="let m of mostri; index as i">
-      <td class="index">{{ i + 1 }}</td>
+    <tr *ngFor="let m of draghi; index as i">
+      <td class="index"><button (click)="mostraDettaglioDrago(i)">{{ i + 1 }}</button></td>
       <td>{{ m.nome }}</td>
       <td>{{ m.ubicazione }}</td>
       <td>
@@ -42,6 +44,8 @@
             {{ m.pericolosita }}
           </span>
       </td>
+      <td>{{ m.elemento }}</td>
+      <td>{{ m.volante ? 'si' : 'no' }}</td>
     </tr>
     </tbody>
   </table>
