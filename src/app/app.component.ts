@@ -12,14 +12,30 @@ import {NgClass, NgForOf, NgIf} from '@angular/common';
 })
 export class AppComponent {
 
+  //stato del componente, dati da mostrare
   mostri:Mostro[] = [];
 
+  //angular istanzia la repository e la passa come proprietà al componente
   constructor(private mostroRepo:MostroRepositoryService)
-  {
-    //                        contiene una callback che prende la response
-    //                        e la usa per riempire l'array di Mostro chiamato mostri
-    //                        la callback viene richiamata in automatico quando arriva la response
-    mostroRepo.getAllMostri().subscribe(resp=>this.mostri=resp);
-  }
+  {}
 
+
+  carica()
+  {
+    //chiamo la repository per farmi arrivare l'array di mostri
+    //quando l'array arriva lo stampo in console
+    this.mostroRepo.getAllMostri()
+      .subscribe(
+        //qui dentro metto la call back, una funzione che riceve come parametro
+        //l'array di mostri che il metodo ha ottenuto convertendo il JSON
+        //e lo usa per fare ciò che voglio, in questo caso stampare
+        (arrayDiMostriLettiDalMetodo)=>
+        {
+          //corpo della funzione
+          console.log(arrayDiMostriLettiDalMetodo);
+          alert("Quando premerai ok l'array mostri sarà riempito")
+          this.mostri = arrayDiMostriLettiDalMetodo;
+        }
+      );
+  }
 }
