@@ -3,6 +3,8 @@ import {Drago} from '../../model/drago';
 import {FormsModule} from '@angular/forms';
 import {NgForOf} from '@angular/common';
 import {DragoRepositoryService} from '../../services/ajax/drago-repository.service';
+import {StatoGlobaleService} from '../../services/stato/stato-globale.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form-drago',
@@ -15,7 +17,7 @@ import {DragoRepositoryService} from '../../services/ajax/drago-repository.servi
 })
 export class FormDragoComponent
 {
-  constructor(private repository:DragoRepositoryService) {
+  constructor(private repository:DragoRepositoryService,private stato:StatoGlobaleService,private router:Router) {
   }
 
   possibiliElementi:string[] = ['ACQUA','FUOCO','VENTO','TERRA'];
@@ -23,10 +25,6 @@ export class FormDragoComponent
 
   dragoDaInserire:Drago = {pericolosita:"",nome:'',ubicazione:"",elemento:``,volante:false}
 
-  @Output()
-  dragoCreato:EventEmitter<any> = new EventEmitter<any>();
-  //creo un nuovo event emitter, un oggetto che può emettere eventi
-  //l' <any> è il payload dell'evento, può contenere informazioni
 
   salva()
   {
@@ -34,7 +32,8 @@ export class FormDragoComponent
     (
       ()=>{
         alert("Drago inserito");
-        this.dragoCreato.emit();//lancio un evento
+        this.stato.ricaricaArray();
+        this.router.navigate(['/tabella']);
       });
   }
 }

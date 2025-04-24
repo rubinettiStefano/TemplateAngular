@@ -1,12 +1,5 @@
-
-
-
-<!-- Viene definito PADRE di un componente il componente che lo grafica nel suo HTML -->
-<!-- Qui il padre cattura l'evento dragoCreato emesso dal figlio e fa partire il metodo ricaricaArray()-->
-<app-form-drago (dragoCreato)="ricaricaArray()" ></app-form-drago>
-<!-- Qui il padre passa come valore della proprietà mostri del figlio
-    la sua proprietà mostriInApp
- -->                                          <!--Con $event prendiamo il contenuto informativo dell'evento, la posizione -->
-<app-tabella-mostri  [draghi]="draghiInApp"  (mostraDettaglio)="mostraDrago($event)" ></app-tabella-mostri>
-
-<app-dettaglio-drago [drago]="dragoSelezionato"></app-dettaglio-drago>
+<!-- routerLink = href ma per i componenti angular -->
+<a routerLink="/tabella">Tabella</a> &nbsp;&nbsp;&nbsp;
+<a routerLink="/form">Form</a>
+<!-- Viene graficato il componente determinato dalle routes-->
+<router-outlet></router-outlet>

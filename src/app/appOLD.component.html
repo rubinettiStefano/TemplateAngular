@@ -1,0 +1,14 @@
+
+<button (click)="mostraPagina('tabella')" >MOSTRA TABELLA</button>
+<button (click)="mostraPagina('form')" >MOSTRA FORM</button>
+<button (click)="mostraPagina('dettaglio')" >MOSTRA DETTAGLIO</button>
+<!-- Viene definito PADRE di un componente il componente che lo grafica nel suo HTML -->
+<!-- Qui il padre cattura l'evento dragoCreato emesso dal figlio e fa partire il metodo ricaricaArray()-->
+<app-form-drago *ngIf="pagineDaMostrare.form" (dragoCreato)="ricaricaArray()" ></app-form-drago>
+<!-- Qui il padre passa come valore della proprietà mostri del figlio
+    la sua proprietà mostriInApp
+ -->                                          <!--Con $event prendiamo il contenuto informativo dell'evento, la posizione -->
+<app-tabella-mostri *ngIf="pagineDaMostrare.tabella" [draghi]="draghiInApp"  (mostraDettaglio)="mostraDrago($event)" ></app-tabella-mostri>
+
+<app-dettaglio-drago *ngIf="pagineDaMostrare.dettaglio" [drago]="dragoSelezionato"></app-dettaglio-drago>
+

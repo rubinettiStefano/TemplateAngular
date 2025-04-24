@@ -1,21 +1,26 @@
 
-<!-- drago.component.html -->
-<div *ngIf="drago">
+<!-- getDrago().component.html -->
+<div *ngIf="getDrago()">
   <article class="card">
     <header>
       <h2>
-        {{ drago.nome }}
-        <small *ngIf="drago.id">#{{ drago.id }}</small>
+        {{ getDrago().nome }}
+        <small *ngIf="getDrago().id">#{{ getDrago().id }}</small>
       </h2>
     </header>
 
     <ul>
-      <li><strong>Elemento:</strong> {{ drago.elemento }}</li>
-      <li><strong>Ubicazione:</strong> {{ drago.ubicazione }}</li>
-      <li><strong>Pericolosità:</strong> {{ drago.pericolosita }}</li>
-      <li><strong>Volante:</strong> {{ drago.volante ? 'Sì' : 'No' }}</li>
+      <li><strong>Elemento:</strong> {{ getDrago().elemento }}</li>
+      <li><strong>Ubicazione:</strong> {{ getDrago().ubicazione }}</li>
+      <li><strong>Pericolosità:</strong> {{ getDrago().pericolosita }}</li>
+      <li><strong>Volante:</strong> {{ getDrago().volante ? 'Sì' : 'No' }}</li>
     </ul>
   </article>
 </div>
 
-<p *ngIf="!drago" class="no-selection">Nessun drago selezionato</p>
+<p *ngIf="!getDrago()" class="no-selection">Nessun getDrago() selezionato</p>
+<br/><br/><br/>
+<div>
+
+  <a routerLink="/tabella">INDIETRO</a>
+</div>
